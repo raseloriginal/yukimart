@@ -1,0 +1,121 @@
+<?php
+$index_file = __DIR__ . '/index.php';
+$js_file = __DIR__ . '/assets/js/app.js';
+
+$index_content = file_get_contents($index_file);
+$js_content = file_get_contents($js_file);
+
+$translations_index = [
+    'FreshDrop - Fresh Local Groceries Delivered' => 'ইউকিমার্ট - তাজা লোকাল মুদি পণ্য হোম ডেলিভারি',
+    'Doorstep Delivery' => 'ডোরস্টেপ ডেলিভারি',
+    'Search fresh fruits, dairy, snacks...' => 'তাজা ফলমূল, দুগ্ধজাত পণ্য, স্ন্যাকস খুঁজুন...',
+    'Search products...' => 'পণ্য খুঁজুন...',
+    'Super-Fast Doorstep Delivery!' => 'সুপার-ফাস্ট ডোরস্টেপ ডেলিভারি!',
+    'Orders delivered fresh within 30-45 minutes.' => '৩০-৪৫ মিনিটের মধ্যে তাজা ডেলিভারি।',
+    'Min. order ৳100' => 'সর্বনিম্ন অর্ডার ৳১০০',
+    'Browse Categories' => 'ক্যাটাগরি ব্রাউজ করুন',
+    '>View All<' => '>সব দেখুন<',
+    'Fresh Products' => 'তাজা পণ্য',
+    'Loading items...' => 'আইটেম লোড হচ্ছে...',
+    '>Sort:<' => '>সর্ট:<',
+    '>Popular<' => '>জনপ্রিয়<',
+    'Price: Low to High' => 'দাম: কম থেকে বেশি',
+    'Price: High to Low' => 'দাম: বেশি থেকে কম',
+    'No products found' => 'কোনো পণ্য পাওয়া যায়নি',
+    'We couldn\'t find matches for your search. Try browsing categories instead!' => 'আপনার অনুসন্ধানের সাথে মেলে এমন কোনো পণ্য পাওয়া যায়নি। ক্যাটাগরি ব্রাউজ করার চেষ্টা করুন!',
+    'Reset Filters' => 'ফিল্টার রিসেট করুন',
+    'View Basket' => 'বাস্কেট দেখুন',
+    '0 items added' => '০ টি আইটেম যোগ করা হয়েছে',
+    '>Basket<' => '>বাস্কেট<',
+    '>Delivery<' => '>ডেলিভারি<',
+    '>Review<' => '>রিভিউ<',
+    'Selected Items (' => 'নির্বাচিত আইটেম (',
+    'Clear All' => 'সব মুছুন',
+    'Your basket is empty. Add products to get started!' => 'আপনার বাস্কেট খালি। শুরু করতে পণ্য যোগ করুন!',
+    'Items Subtotal:' => 'সাবটোটাল:',
+    'Delivery Details' => 'ডেলিভারির বিবরণ',
+    'Full Name' => 'পুরো নাম',
+    'Enter full name' => 'পুরো নাম লিখুন',
+    'Mobile Number' => 'মোবাইল নম্বর',
+    'Must be an 11-digit valid number (e.g. 01712345678)' => 'অবশ্যই ১১-ডিজিটের বৈধ নম্বর হতে হবে (যেমন: ০১৭১২৩৪৫৬৭৮)',
+    'Delivery Area' => 'ডেলিভারি এরিয়া',
+    '-- Choose Area --' => '-- এরিয়া নির্বাচন করুন --',
+    'Exact Address' => 'সঠিক ঠিকানা',
+    'House/Flat No., Road, Landmark details...' => 'বাসা/ফ্ল্যাট নং, রাস্তা, ল্যান্ডমার্কের বিবরণ...',
+    'Preferred Delivery Slot' => 'পছন্দের ডেলিভারি স্লট',
+    '-- Select Time Slot --' => '-- সময়ের স্লট নির্বাচন করুন --',
+    'Delivery Summary' => 'ডেলিভারির সারসংক্ষেপ',
+    '>Edit<' => '>এডিট<',
+    'Recipient:' => 'প্রাপক:',
+    'Slot:' => 'স্লট:',
+    'Address:' => 'ঠিকানা:',
+    'Apply Promo / Coupon Code' => 'প্রোমো / কুপন কোড ব্যবহার করুন',
+    'Enter coupon code' => 'কুপন কোড লিখুন',
+    '>Apply<' => '>এপ্লাই<',
+    'title="Remove Coupon"' => 'title="কুপন মুছুন"',
+    'Order Summary' => 'অর্ডারের সারসংক্ষেপ',
+    '>Items Subtotal<' => '>আইটেমের সাবটোটাল<',
+    'Coupon Discount' => 'কুপন ডিসকাউন্ট',
+    '>Delivery Charge<' => '>ডেলিভারি চার্জ<',
+    'Grand Total' => 'সর্বমোট',
+    'Proceed to Delivery (' => 'ডেলিভারি তথ্যে যান (',
+    '>Close<' => '>বন্ধ করুন<',
+    'Proceed to Review (' => 'রিভিউতে যান (',
+    '>Back<' => '>পিছনে<',
+    'Place Order (' => 'অর্ডার করুন (',
+    'Order Received Successfully!' => 'অর্ডার সফলভাবে গ্রহণ করা হয়েছে!',
+    'Thank you for your order! We are preparing your fresh essentials right away.' => 'আপনার অর্ডারের জন্য ধন্যবাদ! আমরা আপনার তাজা পণ্যগুলো প্রস্তুত করছি।',
+    'Invoice Detail' => 'ইনভয়েস ডিটেইল',
+    '>Subtotal:<' => '>সাবটোটাল:<',
+    'Coupon Discount:' => 'কুপন ডিসকাউন্ট:',
+    'Delivery Fee:' => 'ডেলিভারি ফি:',
+    'Grand Total Paid:' => 'সর্বমোট পরিশোধ:',
+    'Customer:' => 'কাস্টমার:',
+    'Contact:' => 'যোগাযোগ:',
+    'Delivery Slot:' => 'ডেলিভারি স্লট:'
+];
+
+$translations_js = [
+    "'All Items'" => "'সব আইটেম'",
+    "'Grocery'" => "'মুদি'",
+    "item\${filtered.length !== 1 ? 's' : ''} available" => "টি আইটেম পাওয়া গেছে",
+    "'-- Choose Area --'" => "'-- এরিয়া নির্বাচন করুন --'",
+    "'(Delivery: ৳'" => "'(ডেলিভারি: ৳'",
+    "'-- Select Time Slot --'" => "'-- সময়ের স্লট নির্বাচন করুন --'",
+    "Failed to load products. Please refresh." => "পণ্য লোড করতে ব্যর্থ। অনুগ্রহ করে রিফ্রেশ করুন।",
+    "Your basket is empty. Add products to proceed!" => "আপনার বাস্কেট খালি। শুরু করতে পণ্য যোগ করুন!",
+    "Please enter a coupon code." => "অনুগ্রহ করে একটি কুপন কোড লিখুন।",
+    "Coupon removed: subtotal is below minimum order amount." => "কুপন মুছে ফেলা হয়েছে: সাবটোটাল সর্বনিম্ন অর্ডার পরিমাণের নিচে।",
+    "discount applied (-৳" => "ডিসকাউন্ট প্রয়োগ করা হয়েছে (-৳",
+    "fixed discount applied (-৳" => "ফিক্সড ডিসকাউন্ট প্রয়োগ করা হয়েছে (-৳",
+    "Coupon applied successfully!" => "কুপন সফলভাবে প্রয়োগ করা হয়েছে!",
+    "Unable to validate coupon. Try again." => "কুপন যাচাই করা সম্ভব হয়নি। আবার চেষ্টা করুন।",
+    "Coupon removed." => "কুপন মুছে ফেলা হয়েছে।",
+    "Your basket is empty. Add products to order!" => "আপনার বাস্কেট খালি। শুরু করতে পণ্য যোগ করুন!",
+    "Processing Order..." => "অর্ডার প্রসেস হচ্ছে...",
+    "Something went wrong. Please try again." => "কিছু ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+    "Add <span class=\"font-extrabold text-brand-600\">৳\${remaining.toFixed(0)}</span> more for <span class=\"uppercase tracking-wide font-black text-brand-600\">Free Delivery</span>!" => "আরো <span class=\"font-extrabold text-brand-600\">৳\${remaining.toFixed(0)}</span> যোগ করুন <span class=\"uppercase tracking-wide font-black text-brand-600\">ফ্রি ডেলিভারি</span> এর জন্য!",
+    "Get free delivery on orders over ৳\${threshold}. You spent ৳\${spent.toFixed(0)}." => "৳\${threshold} এর বেশি অর্ডারে ফ্রি ডেলিভারি পান। আপনি ৳\${spent.toFixed(0)} খরচ করেছেন।",
+    "Threshold: ৳" => "লিমিট: ৳",
+    "🎉 Congratulations! You've unlocked <span class=\"uppercase tracking-wide font-black text-emerald-600\">Free Delivery</span>!" => "🎉 অভিনন্দন! আপনি <span class=\"uppercase tracking-wide font-black text-emerald-600\">ফ্রি ডেলিভারি</span> আনলক করেছেন!",
+    "Your order of ৳\${spent.toFixed(0)} qualifies for free shipping." => "আপনার ৳\${spent.toFixed(0)} টাকার অর্ডার ফ্রি শিপিং এর জন্য যোগ্য।",
+    "Unlocked!" => "আনলকড!",
+    "Free Delivery Progress" => "ফ্রি ডেলিভারি প্রোগ্রেস",
+    "Add ৳\${remaining.toFixed(0)} more" => "আরো ৳\${remaining.toFixed(0)} যোগ করুন",
+    "🎉 Free Delivery Unlocked!" => "🎉 ফ্রি ডেলিভারি আনলকড!",
+    ">Free<" => ">ফ্রি<",
+    "item\${totalItems !== 1 ? 's' : ''} added" => "টি আইটেম যোগ করা হয়েছে",
+    "Super-Fast Doorstep Delivery!" => "সুপার-ফাস্ট ডোরস্টেপ ডেলিভারি!",
+    "Orders delivered fresh within 30-45 minutes." => "৩০-৪৫ মিনিটের মধ্যে তাজা ডেলিভারি।",
+    "Min. order ৳100" => "সর্বনিম্ন অর্ডার ৳১০০",
+    ">Place Order<" => ">অর্ডার করুন<"
+];
+
+$index_content = strtr($index_content, $translations_index);
+$js_content = strtr($js_content, $translations_js);
+
+file_put_contents($index_file, $index_content);
+file_put_contents($js_file, $js_content);
+
+echo "Translated successfully.";
+?>
