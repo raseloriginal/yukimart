@@ -1,9 +1,19 @@
 <?php
 // db.php
-$host = 'localhost';
-$db   = 'yukimart';
-$user = 'root';
-$pass = '';
+$server_name = $_SERVER['SERVER_NAME'] ?? '';
+$http_host = $_SERVER['HTTP_HOST'] ?? '';
+
+if (strpos($server_name, 'localhost') !== false || strpos($http_host, 'localhost') !== false || $server_name === '127.0.0.1' || $http_host === '127.0.0.1') {
+    $host = 'localhost';
+    $db   = 'yukimart';
+    $user = 'root';
+    $pass = '';
+} else {
+    $host = 'localhost';
+    $db   = 'rasedwwq_yukimart';
+    $user = 'rasedwwq_yukimart';
+    $pass = 'xYKDtznPec!KbDe3';
+}
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;charset=$charset";
