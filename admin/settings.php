@@ -147,6 +147,9 @@ $coupons = $pdo->query("SELECT * FROM coupons ORDER BY created_at DESC")->fetchA
             <a href="users.php" class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-brand-600 font-semibold rounded text-sm transition-all">
                 <i class="fa-solid fa-users w-5 text-center"></i> Users (DSR)
             </a>
+            <a href="warehouses.php" class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-brand-600 font-semibold rounded text-sm transition-all">
+                <i class="fa-solid fa-warehouse w-5 text-center"></i> Warehouses
+            </a>
             <a href="areas.php" class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-brand-600 font-semibold rounded text-sm transition-all">
                 <i class="fa-solid fa-map-location-dot w-5 text-center"></i> Delivery Areas
             </a>
